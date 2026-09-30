@@ -644,7 +644,7 @@ class App:
 
     def _construir(self) -> None:
         root = self.root
-        root.title("Descargador de redes")
+        root.title("Media Downloader")
         root.configure(bg=T["app"])
         # Medido con ``winfo_reqheight()`` tras construir: 650 px sin la caja
         # de registro (antes eran 840). El alto se deja holgado y el mínimo

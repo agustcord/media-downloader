@@ -1,8 +1,12 @@
 # Media Downloader
 
+<p align="center"><img src="assets/logo.png" alt="Logo de Media Downloader" width="420"></p>
+
 Aplicación de escritorio (Windows, tkinter) para descargar video y audio de **YouTube, Instagram y
 TikTok** para **uso personal**. Nació porque Drift (el editor de video) limita la cantidad de
 descargas: esta app corre en tu máquina, sin límite de descargas y **sin costo**.
+
+<p align="center"><img src="assets/screenshot.png" alt="Ventana principal de Media Downloader" width="560"></p>
 
 - **Motor:** binario propio `bin\yt-dlp.exe` (2026.08.19) + `ffmpeg` para medir y recodificar.
 - **Interfaz:** `descargador.bat` → ventana con pasos numerados: pegar link → elegir calidad → Descargar.
