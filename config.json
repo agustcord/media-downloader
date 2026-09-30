@@ -1,0 +1,20 @@
+{
+  "browser": "",
+  "profile": "",
+  "cookies_file": "",
+  "output_dir": "downloads",
+  "modo": "video",
+  "max_height": 1080,
+  "audio_format": "mp3",
+  "player_client": "web_embedded",
+  "impersonate": "",
+  "codec_policy": {
+    "youtube": "nativo",
+    "instagram": "nativo",
+    "tiktok": "h264"
+  },
+  "filename_template": "%(title).80s [%(id)s].%(ext)s",
+  "timeout_segundos": 1800,
+  "limpiar_original_tras_recodificar": false,
+  "limpiar_part_al_cancelar": true
+}

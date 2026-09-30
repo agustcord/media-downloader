@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1024, height=1024" />
+    <title>Logo media-downloader</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      body {
+        margin: 0;
+        background: #09090b;
+        font-family: "Segoe UI", Inter, system-ui, sans-serif;
+      }
+      #root {
+        position: relative;
+        width: 1024px;
+        height: 1024px;
+        overflow: hidden;
+      }
+      #fondo {
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(720px 720px at 50% 38%, #1e2430 0%, rgba(24, 24, 27, 0) 68%),
+          linear-gradient(180deg, #18181b 0%, #09090b 100%);
+      }
+      #brillo {
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(340px 300px at 50% 44%, rgba(34, 211, 238, 0.16) 0%, rgba(34, 211, 238, 0) 70%);
+      }
+      .clip {
+        position: absolute;
+        inset: 0;
+        display: grid;
+        place-items: center;
+      }
+      #marca {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 34px;
+      }
+      #glifo {
+        width: 460px;
+        height: 460px;
+      }
+      #palabra {
+        margin: 0;
+        font-size: 64px;
+        font-weight: 600;
+        letter-spacing: 0.02em;
+        color: #fafafa;
+      }
+      #palabra .guion {
+        color: #22d3ee;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      id="root"
+      data-composition-id="logo"
+      data-start="0"
+      data-width="1024"
+      data-height="1024"
+      data-duration="2"
+    >
+      <div id="fondo" data-start="0" data-duration="2" data-track-index="0"></div>
+      <div id="brillo" data-start="0" data-duration="2" data-track-index="0"></div>
+
+      <section id="marca-clip" class="clip" data-start="0" data-duration="2" data-track-index="1">
+        <div id="marca">
+          <!-- Glifo: tres nodos de red convergen en una flecha de descarga sobre bandeja -->
+          <svg id="glifo" viewBox="0 0 460 460" xmlns="http://www.w3.org/2000/svg" aria-label="redes que convergen en una descarga">
+            <!-- aristas de la red -->
+            <path d="M 110 92 L 230 190" stroke="#3f3f46" stroke-width="10" stroke-linecap="round" fill="none" />
+            <path d="M 350 92 L 230 190" stroke="#3f3f46" stroke-width="10" stroke-linecap="round" fill="none" />
+            <path d="M 230 64 L 230 190" stroke="#3f3f46" stroke-width="10" stroke-linecap="round" fill="none" />
+            <!-- nodos de red -->
+            <circle id="nodo-izq" cx="110" cy="84" r="34" fill="#a78bfa" />
+            <circle id="nodo-der" cx="350" cy="84" r="34" fill="#a78bfa" />
+            <circle id="nodo-top" cx="230" cy="56" r="34" fill="#e4e4e7" />
+            <!-- flecha de descarga -->
+            <g id="flecha">
+              <rect x="196" y="176" width="68" height="128" rx="30" fill="#22d3ee" />
+              <path d="M 230 352 L 130 236 L 330 236 Z" fill="#22d3ee" />
+            </g>
+            <!-- bandeja -->
+            <path d="M 96 414 L 364 414" stroke="#22d3ee" stroke-width="34" stroke-linecap="round" fill="none" />
+          </svg>
+          <h1 id="palabra">media<span class="guion">-</span>downloader</h1>
+        </div>
+      </section>
+    </div>
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+      tl.fromTo(
+        "#marca",
+        { y: 36, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.7, ease: "power3.out" },
+        0.1
+      );
+      window.__timelines["logo"] = tl;
+    </script>
+  </body>
+</html>

@@ -1,0 +1,24 @@
+# Entorno virtual (gestionado por uv)
+.venv/
+
+# Caches de Python y pytest
+__pycache__/
+.pytest_cache/
+
+# Artefactos de build
+build/
+
+# Metadatos de instalación editable (uv sync los regenera; no se versionan)
+*.egg-info/
+
+# Salida del descargador (contenido bajado, no se versiona)
+downloads/
+
+# Binario del motor de descarga (se gestiona aparte, no se versiona)
+bin/
+
+# Log de ejecución de la app (lo crea gui.py en la raíz; artefacto personal, no se versiona — D19)
+descargador.log
+
+# Boveda privada (Obsidian) - nunca se publica
+.memory/

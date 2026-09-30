@@ -1,0 +1,45 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "descargador-redes"
+version = "0.1.0"
+description = "Descargador de escritorio de uso personal para contenido de redes sociales (Instagram, YouTube, TikTok)."
+requires-python = ">=3.10"
+authors = [
+    { name = "Jonatan Córdoba" },
+]
+keywords = ["download", "video", "instagram", "youtube", "tiktok"]
+classifiers = [
+    "Development Status :: 2 - Pre-Alpha",
+    "Intended Audience :: End Users/Desktop",
+    "Topic :: Multimedia :: Video",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Operating System :: Microsoft :: Windows",
+]
+
+# Sin dependencias de runtime, a propósito: el motor de descarga es un binario
+# propio del proyecto. Cero dependencias Python en runtime es una decisión de
+# diseño deliberada.
+dependencies = []
+
+[dependency-groups]
+dev = [
+    "pytest",
+]
+
+[tool.pytest.ini_options]
+# La suite por defecto NO depende de la red: los tests de deriva (§7.2 del plan
+# v2) se ejecutan aparte con ``uv run pytest -m deriva``. Un ``-m`` por CLI pisa
+# este valor (addopts se inserta antes de los argumentos de la línea de comandos).
+addopts = "-m 'not deriva'"
+markers = [
+    "deriva: toca la red (yt-dlp contra URLs vivas) y re-verifica la línea base medida el 2026-09-29 (probe T02). Excluido de la suite por defecto.",
+]
+
+[tool.setuptools.packages.find]
+where = ["tools"]
